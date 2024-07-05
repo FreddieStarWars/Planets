@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://2b3ql3g6xnmj"]
+
+[ext_resource type="PackedScene" uid="uid://b83uml8hh61r0" path="res://planet.tscn" id="1_uy80a"]
+
+[sub_resource type="Environment" id="Environment_ct77x"]
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node3D"]
+
+[node name="Planet" parent="." instance=ExtResource("1_uy80a")]
+size = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ct77x")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -174.787, 0, 0)
+light_energy = 6.42
+omni_range = 4096.0

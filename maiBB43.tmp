@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://2b3ql3g6xnmj"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_aisak"]
+[ext_resource type="PackedScene" uid="uid://b83uml8hh61r0" path="res://planet.tscn" id="1_uy80a"]
+
+[sub_resource type="Environment" id="Environment_qxuev"]
+ambient_light_source = 2
+ambient_light_color = Color(0.741384, 0.741385, 0.741385, 1)
+ambient_light_energy = 0.01
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("camera_body")]
+process_mode = 3
+script = ExtResource("1_aisak")
+camera_body = NodePath("Star")
+path_steps = null
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qxuev")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 87.5995)
+current = true
+fov = 70.0
+size = 1000.0
+far = 100000.0
+
+[node name="Planet" parent="." instance=ExtResource("1_uy80a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.6104, 0, 0)
+velocity = Vector3(0, 25, 0)
+surface_gravity = 0.5
+color = Color(0.34916, 0.796986, 0.877216, 1)
+
+[node name="Star" parent="." instance=ExtResource("1_uy80a")]
+size = 10.0
+surface_gravity = 15.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(2.6054e-15, -1, 4.37114e-08, -5.96046e-08, -4.37114e-08, -1, 1, -2.11758e-22, -5.96046e-08, 0, 0, 0)

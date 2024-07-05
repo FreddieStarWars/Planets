@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b83uml8hh61r0"]
+
+[ext_resource type="Script" path="res://planet.gd" id="1_lxl0h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlrap"]
+resource_local_to_scene = true
+
+[node name="Planet" type="Node3D"]
+process_mode = 1
+script = ExtResource("1_lxl0h")
+size = 1.0
+color = Color(0.902564, 0.677096, 0.38761, 1)
+
+[node name="Sphere" type="CSGSphere3D" parent="."]
+radial_segments = 100
+rings = 100
+material = SubResource("StandardMaterial3D_dlrap")

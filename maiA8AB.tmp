@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://2b3ql3g6xnmj"]
+
+[ext_resource type="PackedScene" uid="uid://b83uml8hh61r0" path="res://planet.tscn" id="1_uy80a"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2j32t"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.5, 0.5, 0.5, 1)
+sky_energy_multiplier = 0.0
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Sky" id="Sky_svuo0"]
+sky_material = SubResource("ProceduralSkyMaterial_2j32t")
+
+[sub_resource type="Environment" id="Environment_yjnc3"]
+background_mode = 2
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_svuo0")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 16.0
+sdfgi_enabled = true
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yjnc3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 81.0522)
+current = true
+size = 100.0
+near = 10.0
+far = 40000.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(2.6054e-15, -1, 4.37114e-08, -5.96046e-08, -4.37114e-08, -1, 1, -2.11758e-22, -5.96046e-08, 0, 0, 0)
+
+[node name="Planet4" parent="." instance=ExtResource("1_uy80a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55262, 0.918549, -0.394176)
+size = 18.965
+surface_gravity = 9.8
+color = Color(0.680634, 0.21513, 0.584323, 1)
+
+[node name="Planet3" parent="." instance=ExtResource("1_uy80a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3866, 1.91165, -9.53674e-07)
+size = 18.965
+surface_gravity = 9.8
+color = Color(0.597639, 0.341252, 0.745071, 1)
