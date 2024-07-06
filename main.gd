@@ -3,6 +3,7 @@ extends Node3D
 
 @export var camera_body : Node
 @export var follow_body : bool
+@export var orbit_path : bool
 @export var path_steps : int
 var bodies : Array
 var paused : bool = true
@@ -19,6 +20,8 @@ func _physics_process(delta):
 	bodies = get_tree().get_nodes_in_group("bodies")
 	for i in range(bodies.size()):
 		var this_body = bodies[i]
+		
+		
 		if !paused:
 			for j in range(bodies.size()):
 					if i != j:
@@ -30,6 +33,6 @@ func _physics_process(delta):
 	if follow_body:
 		get_node("Camera").position.x = camera_body.position.x
 		get_node("Camera").position.y = camera_body.position.y
-				
+	
 					
 			
